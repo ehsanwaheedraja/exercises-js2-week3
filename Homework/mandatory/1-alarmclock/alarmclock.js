@@ -1,4 +1,19 @@
-function setAlarm() {}
+function setAlarm() {
+  var timeSet = document.getElementById("alarmSet").value;
+  let ourVar = parseInt(timeSet);
+
+  function countRem() {
+    if (ourVar < 0) {
+      clearInterval(id);
+      playAlarm();
+    } else {
+      document.getElementById("timeRemaining").innerText =
+        "Time Remaining: 00:" + ourVar;
+      ourVar--;
+    }
+  }
+  var id = setInterval(countRem, 1000);
+}
 
 // DO NOT EDIT BELOW HERE
 
